@@ -27,7 +27,7 @@ public class SceneChangeScripts : MonoBehaviour
 
     IEnumerator ChangeTime(string sceneName)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(sceneName);
     }
 }
