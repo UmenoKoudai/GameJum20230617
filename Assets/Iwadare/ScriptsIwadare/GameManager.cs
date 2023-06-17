@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("Playerからゴールまでを示すSlider")]
     [SerializeField] 
     Slider _player2Slider;
+    [SerializeField] GameObject _gaugeObj;
     [Tooltip("テキストを表示するまでのコルーチン")]
     [SerializeField] float _wintextCoroutine = 3f;
     [Tooltip("準備、勝った時のテキスト")]
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("ゲームの管理のstate")]
     InGame _inGameState = InGame.Stay;
     public InGame InGameState => _inGameState;
+    public float Distance => _distance;
     // Start is called before the first frame update
     void Awake()
     {
@@ -115,12 +117,13 @@ public class GameManager : MonoBehaviour
 
     /// <summary>プレイヤーの走った距離の計算</summary>
     /// <param name="i"></param>
-    void MoveDistance(int i)
+    public void MoveDistance(int player1, int player2)
     {
-        _player1dis += i;
+        _player1dis += player1;
         if (_player1Slider) { _player1Slider.value = _player1dis / _distance; }
-        _player2dis += i;
+        _player2dis += player2;
         if (_player2Slider) { _player2Slider.value = _player2dis / _distance; }
+        _gaugeObj.SetActive(true);
     }
 
     /// <summary>勝った時の処理</summary>
