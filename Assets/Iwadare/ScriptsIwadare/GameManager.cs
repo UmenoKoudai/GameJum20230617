@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
     string _sceneName;
     [SerializeField]
     Button _sceneButton;
+    [SerializeField]
+    string _retrySceneName;
+    [SerializeField]
+    Button _retryButton;
     [Tooltip("ÉQÅ[ÉÄÇÃä«óùÇÃstate")]
     InGame _inGameState = InGame.Stay;
     public InGame InGameState => _inGameState;
@@ -69,9 +73,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (_sceneButton)
+        if (_sceneButton && _retryButton)
         {
+            _retryButton.onClick.AddListener(() => SceneChangeScripts.instance.SceneChange(_retrySceneName));
             _sceneButton.onClick.AddListener(() => SceneChangeScripts.instance.SceneChange(_sceneName));
+            _retryButton.gameObject.SetActive(false);
             _sceneButton.gameObject.SetActive(false);
         }
         StartCoroutine(StayTime());
@@ -158,6 +164,7 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1.5f);
         _sceneButton.gameObject.SetActive(true);
+        _retryButton.gameObject.SetActive(true);
     }
 
     /// <summary>ÉQÅ[ÉÄÇÃä«óùÇÃstate</summary>
