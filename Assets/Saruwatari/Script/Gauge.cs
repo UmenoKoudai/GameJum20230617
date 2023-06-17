@@ -55,24 +55,24 @@ public class Gauge : MonoBehaviour
         {
             GeugeMeter1 += Time.deltaTime * GaugeSpeed;
             Player1Gauge.value = GeugeMeter1 / (float)MaxGeugeMeter1;
-            
-            if (GeugeMeter1 >= MaxGeugeMeter1)
-            {
-                GeugeMeter1 = 0;
-                Player1Gauge.value = GeugeMeter1 / (float)MaxGeugeMeter1;
-            }
+        }
+        if (GeugeMeter1 >= MaxGeugeMeter1)
+        {
+            Meter1 = true;
+            GeugeMeter1 = 1;
+            Player1Gauge.value = GeugeMeter1 / (float)MaxGeugeMeter1;
         }
 
         if (Meter2 == false)
         {
             GeugeMeter2 += Time.deltaTime * GaugeSpeed;
             Player2Gauge.value = GeugeMeter2 / (float)MaxGeugeMeter2;
-
-            if (GeugeMeter2 >= MaxGeugeMeter2)
-            {
-                GeugeMeter2 = 0;
-                Player2Gauge.value = GeugeMeter2 / (float)MaxGeugeMeter2;
-            }
+        }
+        if (GeugeMeter2 >= MaxGeugeMeter2)
+        {
+            Meter2 = true;
+            GeugeMeter2 = 1;
+            Player2Gauge.value = GeugeMeter2 / (float)MaxGeugeMeter2;
         }
     }
 
