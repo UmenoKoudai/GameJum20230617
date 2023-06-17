@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Gauge : MonoBehaviour
 {
-    [SerializeField,Header("PlayerScript")] Player _player; 
+    [SerializeField, Header("PlayerScript")] Player _player1;
+    [SerializeField, Header("PlayerScript")] Player _player2;
 
     [SerializeField,Header("Player1‚ÌƒQ[ƒW")] Slider Player1Gauge;
     [SerializeField,Header("Player2‚ÌƒQ[ƒW")] Slider Player2Gauge;
@@ -28,7 +29,11 @@ public class Gauge : MonoBehaviour
         Meter1 = false;
         Meter2 = false;
     }
-
+    private void OnEnable()
+    {
+        GeugeMeter1 = 0;
+        GeugeMeter2 = 0;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -44,7 +49,7 @@ public class Gauge : MonoBehaviour
             GeugeMeter1 += Time.deltaTime * GaugeSpeed;
             Player1Gauge.value = GeugeMeter1 / (float)MaxGeugeMeter1;
             
-            if (GeugeMeter1 >= 100)
+            if (GeugeMeter1 >= MaxGeugeMeter1)
             {
                 GeugeMeter1 = 0;
                 Player1Gauge.value = GeugeMeter1 / (float)MaxGeugeMeter1;
@@ -56,7 +61,7 @@ public class Gauge : MonoBehaviour
             GeugeMeter2 += Time.deltaTime * GaugeSpeed;
             Player2Gauge.value = GeugeMeter2 / (float)MaxGeugeMeter2;
 
-            if (GeugeMeter2 >= 100)
+            if (GeugeMeter2 >= MaxGeugeMeter2)
             {
                 GeugeMeter2 = 0;
                 Player2Gauge.value = GeugeMeter2 / (float)MaxGeugeMeter2;
@@ -81,8 +86,11 @@ public class Gauge : MonoBehaviour
     {
         if (Meter1 == true && Meter2 == true)
         {
-            _player.PlayerMove(GeugeMeter1);
-            _player.PlayerMove(GeugeMeter2);
+            _player1.PlayerMove(GeugeMeter1);
+            _player2.PlayerMove(GeugeMeter2);
+            Meter1 = false;
+            Meter2 = false;
+            gameObject.SetActive(false);
         }
     }
 }
