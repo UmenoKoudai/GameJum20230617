@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Gauge : MonoBehaviour
 {
-    //[SerializeField] 
+    [SerializeField,Header("PlayerScript")] Player _player; 
 
     [SerializeField,Header("Player1のゲージ")] Slider Player1Gauge;
     [SerializeField,Header("Player2のゲージ")] Slider Player2Gauge;
@@ -15,7 +15,7 @@ public class Gauge : MonoBehaviour
     [Header("Player1のゲージの最大の値")] public float MaxGeugeMeter1 = 100;
     [Header("Player2のゲージの最大の値")] public float MaxGeugeMeter2 = 100;
 
-    public int GaugeSpeed;
+    [Header("Gaugeのスピード")]public int GaugeSpeed;
 
     public bool Meter1;
     public bool Meter2;
@@ -32,6 +32,7 @@ public class Gauge : MonoBehaviour
     {
         Meter();
         MeterStop();
+        PassVaule();
     }
 
     public void Meter()
@@ -71,6 +72,15 @@ public class Gauge : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
             Meter2 = true;
+        }
+    }
+
+    public void PassVaule()
+    {
+        if (Meter1 == true && Meter2 == true)
+        {
+            Meter1 = false;
+            Meter2 = false;
         }
     }
 }
