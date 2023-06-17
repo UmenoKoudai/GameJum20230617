@@ -20,6 +20,8 @@ public class Gauge : MonoBehaviour
     public bool Meter1;
     public bool Meter2;
 
+    public int _timeOut;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,8 +81,8 @@ public class Gauge : MonoBehaviour
     {
         if (Meter1 == true && Meter2 == true)
         {
-            Meter1 = false;
-            Meter2 = false;
+            _player.PlayerMove(GeugeMeter1);
+            _player.PlayerMove(GeugeMeter2);
         }
     }
 }
