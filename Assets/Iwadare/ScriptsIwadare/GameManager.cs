@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
             if (_player2Slider) { _player2Slider.value = _player2dis / _distance; }
         }
         _inGameState = InGame.InGame;
+        _gaugeObj.SetActive(true);
         yield return new WaitForSeconds(2f);
         _winText.gameObject.SetActive(false);
     }
@@ -104,7 +105,12 @@ public class GameManager : MonoBehaviour
     {
         if (_inGameState == InGame.InGame)
         {
-            if (_player1dis >= _distance)
+            if(_player1dis >= _distance && _player2dis >= _distance)
+            {
+                string winner = _player1dis > _player2dis ? "Player1" : "Player2";
+                Win(winner);
+            }
+            else if (_player1dis >= _distance)
             {
                 Win(_player1str);
             }

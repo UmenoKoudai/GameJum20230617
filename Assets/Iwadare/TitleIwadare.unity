@@ -197,7 +197,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db34abdc0a1ede04a9f59b56cda89420, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2af8dd3b2671644ca6fc476f34fd400, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e08d2b0c5f4e91a4db8438870e71c08e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27b21da1c5460284b9668f8cb021048b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -705,7 +705,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\u6E29\u6545\u77E5\u65B0"
+          m_StringArgument: Umeno
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1046034642
@@ -1011,7 +1011,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: fa7ef543435174c4bb5a655143007d23, type: 3}
+    m_Font: {fileID: 12800000, guid: 66d3f15a0e90ec442b0d64292bbaeb3d, type: 3}
     m_FontSize: 100
     m_FontStyle: 1
     m_BestFit: 0

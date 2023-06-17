@@ -37,9 +37,16 @@ public class Gauge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Meter();
-        MeterStop();
-        PassVaule();
+        if (GameManager.instance.InGameState == GameManager.InGame.InGame)
+        {
+            Meter();
+            MeterStop();
+            PassVaule();
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void Meter()
